@@ -60,14 +60,17 @@ function activate(context) {
     });
     if(!fileUrl) return;
     const fileUrL = fileUrl[0].path.slice(1,)
-    const extName = fileUrL.split(/\.(gif|png|jpg|jpeg|webp)$/i)
+    const extName = fileUrL.split(/\.(gif|png|jpg|jpeg|webp)$/i)[1]
     fs.readFile(fileUrL, async (err,data) => {
       if (err) throw err;
       // 读取用户设置
       const userConfig =  vscode.workspace.getConfiguration('upload_image')
       const { Bucket, Region, SecretId, SecretKey } = userConfig;
-      // tinyPNG压缩
-      const imageBuffer = await tinyCompress(data);
+      // tinyPNG压缩，支持PNG JPEG
+      let imageBuffer = data;
+      if(['png', 'jpg','jpeg'].includes(extName)){
+        imageBuffer = await tinyCompress(data);
+      }
       // 上传COS
       const cos = new COS({
         SecretId,
@@ -76,7 +79,7 @@ function activate(context) {
       cos.putObject({
         Bucket, /* 必须 */
         Region,    /* 必须 */
-        Key: `${getFileName()}.${extName[1]}`,/* 必须 */
+        Key: `${getFileName()}.${extName}`,/* 必须 */
         Body: imageBuffer, // 上传文件对象
         onProgress: function(progressData) {
           console.log(JSON.stringify(progressData));

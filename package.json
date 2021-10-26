@@ -1,8 +1,9 @@
 {
   "name": "compressed-upload",
-  "displayName": "compressed-upload",
+  "displayName": "Compressed Upload",
+  "publisher": "xxicao",
   "description": "",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.61.0"
   },
