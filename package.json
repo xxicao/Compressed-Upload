@@ -1,0 +1,80 @@
+{
+  "name": "compressed-upload",
+  "displayName": "compressed-upload",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.61.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.choosedImage"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.choosedImage",
+        "title": "上传图片"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorFocus",
+          "command": "extension.choosedImage",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": [
+      {
+        "title": "上传图片",
+        "properties": {
+          "upload_image.SecretId": {
+            "type": "string",
+            "default": "",
+            "description": "设置cos上传SecretId"
+          },
+          "upload_image.SecretKey": {
+            "type": "string",
+            "default": "",
+            "description": "设置cos上传SecretKey"
+          },
+          "upload_image.Bucket": {
+            "type": "string",
+            "default": "",
+            "description": "设置cos上传Bucket"
+          },
+          "upload_image.Region": {
+            "type": "string",
+            "default": "",
+            "description": "设置cos上传Region"
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.61.0",
+    "@types/glob": "^7.1.4",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "14.x",
+    "eslint": "^7.32.0",
+    "glob": "^7.1.7",
+    "mocha": "^9.1.1",
+    "typescript": "^4.4.3",
+    "@vscode/test-electron": "^1.6.2"
+  },
+  "dependencies": {
+    "cos-nodejs-sdk-v5": "^2.10.6",
+    "tinify": "^1.6.1"
+  }
+}
