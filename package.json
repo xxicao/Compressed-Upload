@@ -2,7 +2,12 @@
   "name": "compressed-upload",
   "displayName": "Compressed Upload",
   "publisher": "xxicao",
-  "description": "",
+  "description": "This is a picture compression and uploading COS plugin based on TinyPNG compression tool, which supports PNG and JPG type compression. ",
+  "icon": "https://compressed-upload-1301608163.cos.ap-guangzhou.myqcloud.com/10-27-1635302307596.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xxicao/Compressed-Upload.git"
+  },
   "version": "1.0.0",
   "engines": {
     "vscode": "^1.61.0"
