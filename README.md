@@ -6,4 +6,4 @@
 ![](https://compressed-upload-1301608163.cos.ap-guangzhou.myqcloud.com/10-27-1635301481530.png "demo")
 
 - 光标点击需要图片地址的位置，或者选中需要替换的代码，右键点击菜单上传图片选项，选择要上传的图片，等待几秒即可获取图片压缩后上传到COS的HTTP地址
-![](https://compressed-upload-1301608163.cos.ap-guangzhou.myqcloud.com/10-26-1635257476289.gif "demo")
+![](https://compressed-upload-1301608163.cos.ap-guangzhou.myqcloud.com/10-27-1635311823489.gif "demo")
